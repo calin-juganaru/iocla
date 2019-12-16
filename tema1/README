@@ -1,0 +1,42 @@
+Algoritmul pentru evaluarea Reverse Polish Notations este:
+
+	pentru fiecare caracter din string-ul citit:
+		dacă este un operator:
+			extrag de pe stivă doi operanzi;
+			aplic operația corespunzătoare pe ei;
+			pun rezultatul în stivă;
+		dacă este un operand:
+			pun valoarea sa pe stivă;
+	la final extrag rezultatul de pe stivă.
+
+Pentru implementarea algoritmului am creat și utilizat următoarele label-uri:
+
+	parse_input: parsarea intrării - citesc totul într-un string (expr) și-l parcurg
+								caracter cu caracter pentru construirea numerelor și operatorilor
+
+	build_number: trimit numărul către construire în funcție de semnul său
+
+	build_positive: construiesc un număr pozitiv
+
+	negative_number: dacă va fi un număr negativ, încep construirea sa
+										cu -(prima sa cifră)
+
+	build_negative: construiesc un număr negativ
+
+	push_number: după ce am cosntruit un număr, îl pun pe stivă
+				 și reinițializez registrul ebx cu 0 pentru a crea altul
+
+	minus: caracterul minus ar putea fi operator sau începutul unui număr negativ,
+						așa că îl redirecționez către label-ul corespunzător
+
+	operator: dacă am găsit un caracter, aplic operația corespunzătoare lui
+
+	plus: operația de adunare
+
+	substract: operația de scădere
+
+	multiply: operația de înmulțire
+
+	divide: operația de împărțire
+
+	exit: afișarea rezultatului final și ieșirea din program

@@ -1,0 +1,28 @@
+Pentru rezolvarea cerinței am implementat următoarele funcții:
+
+xor_strings: primește în format binar mesajul criptat, iar cheia se află la adresa imediat
+             următoare șirului dat ca parametru. aplic operația xor între elementele
+             cu același indice din cele două șiruri în bucla loop_1
+
+rolling_xor: primește șirul criptat ca parametru și aplic xor între fiecare două elemente
+             consecutive după formula de recurență din enunț (c_n = m_n ^ c_n-1) în loop_2
+
+xor_hex_strings: începutul este ca la prima funcție, dar șirul fiind în format hexazecimal
+                 în loc de binar, va trebui întai să-i convertesc elementele în coduri ascii
+                 (bucla hexa_to_ascii_loop), apoi să le concatenez pentru a forma codurile
+                 ascii ale caracterelor ce vor fi afișate (bucla ascii_to_bin_loop).
+                 șirul rezultat va suprascrie șirul primit ca parametru
+
+base32decode: parcurg elementele în baza 32 și construiesc din acestea octeții cu codurile
+              ascii ale șirului decriptat, care va suprascrie șirul primit
+
+bruteforce_singlebyte_xor: încerc fiecare octet din intervalul [0, 255] și aplic xor cu
+                           acesta pe șirul primit, apoi verific dacă șirul 'decriptat'
+                           conține subșirul 'force', caz în care am găsit cheia și pot
+                           decripta întregul șir peste cel inițial
+
+decode_vigenere: parcurg caracterele din șirul primit și, dacă sunt litere, adaug offset-ul
+                 față de litera 'a' corespunzător caracterului din cheie pentru a decripta 
+                 șirul. din nou, acesta va suprascrie șirul primit ca parametru
+
+* funcțiile utilitare sunt descrise direct în comentariile din cod
